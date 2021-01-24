@@ -80,7 +80,6 @@ public class BallView extends View implements SensorEventListener {
             parallaxBgY = 0;
         }
         canvas.drawBitmap(bitmapBG, (float) parallaxBgY, 0, null);
-        System.out.println(bitmapBG.getWidth() + " = " + parallaxBgY);
 
         // TODO - EXTRA - COINS
         for (int i = 0; i < coins.length; i++) {
@@ -154,8 +153,7 @@ public class BallView extends View implements SensorEventListener {
             if (coin != null && coin.isCollision(ball)) {
                 points += coin.points;
                 soundManager.playSound(6);
-                coin.x = (float) (Math.random()*((width-50) - 50 + 1) + 50);
-                coin.y = (float) (Math.random()*((height-50) - 50 + 1) + 50);
+                coin.generatePosition(width, height, 50, 50);
             }
         }
     }

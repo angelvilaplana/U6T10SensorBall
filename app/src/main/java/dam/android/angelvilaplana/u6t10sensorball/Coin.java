@@ -27,8 +27,7 @@ public class Coin {
     }
 
     public Coin(int width, int height, int marginWidth, int marginHeight) {
-        this.x = (float) (Math.random()*((width-marginWidth) - marginWidth + 1) + marginWidth);
-        this.y = (float) (Math.random()*((height-marginHeight) - marginHeight + 1) + marginHeight);
+        generatePosition(width, height, marginWidth, marginHeight);
         this.diameter = 20;
         this.color = Color.YELLOW;
         this.points = 5;
@@ -39,6 +38,11 @@ public class Coin {
             return y + diameter / 2 > ball.y && y - diameter / 2 < ball.y + ball.SIZE;
         }
         return false;
+    }
+
+    public void  generatePosition(int width, int height, int marginWidth, int marginHeight) {
+        x = (float) (Math.random()*((width-marginWidth) - marginWidth + 1) + marginWidth);
+        y = (float) (Math.random()*((height-marginHeight) - marginHeight + 1) + marginHeight);
     }
 
 }
